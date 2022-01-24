@@ -7,7 +7,7 @@ So that I can use MakersBnB
 I'd like to be able to sign up
 ```
 ### Diagram for user story one
-<img src="https://user-images.githubusercontent.com/24737738/150822684-83b15902-ac06-4ca3-b3d1-f5a0afb2073f.png" width="70%">
+<img src="https://user-images.githubusercontent.com/24737738/150827976-332adfc0-d6fe-4118-a516-7c024ee0537d.png" width="70%">
 
 ## User story two
 ```
