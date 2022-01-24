@@ -8,7 +8,6 @@ describe User do
 
       expect(user).to be_a User 
       expect(user.email).to eq 'test@example.com'
-      expect(user.password).to eq 'password1'
     end
   end
 end
