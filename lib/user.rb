@@ -24,5 +24,3 @@ class User
     User.new(id: result[0]['id'], email: result[0]['email'])
   end
 end
-
-  # eventually put in own class called DatabaseConnection which handles connecting to database

@@ -1,8 +1,12 @@
 require 'pg'
 
 class DatabaseConnection
-  def self.setup(dbname)
-    @connection = PG.connect(dbname: dbname)
+  def self.setup
+    if ENV['ENVIRONMENT'] == 'test'
+      @connection = PG.connect(dbname: 'makersbnb_test')
+    else
+      @connection = PG.connect(dbname: 'makersbnb')
+    end
   end
 
   def self.query(sql, params = [])
