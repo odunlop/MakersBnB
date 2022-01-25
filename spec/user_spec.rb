@@ -17,8 +17,6 @@ describe User do
       db_user = connection.exec("SELECT * FROM users WHERE email = 'idtest@example.com';")
 
       expect(user.id).to eq db_user[0]['id']
-
-      connection.exec("TRUNCATE users;")
     end
   end
 
@@ -28,9 +26,6 @@ describe User do
       authenticated_user = User.authenticate(email: 'test@example.com', password: 'password123')
 
       expect(authenticated_user.id).to eq user.id
-
-      connection = PG.connect(dbname: 'makersbnb_test')
-      connection.exec("TRUNCATE users;")
     end
   end
 end
