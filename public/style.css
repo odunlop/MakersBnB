@@ -32,6 +32,12 @@ body {
   width: 640px;
   margin: 40px;
 }
+.app-text h2{
+  font-size: 20px;
+  color: #8a0017;
+  width: 640px;
+  margin: 40px;
+}
 .app-text p{
   width: 650px;
   font-size: 15px;

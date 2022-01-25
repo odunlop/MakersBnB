@@ -21,6 +21,8 @@ feature 'Logging in' do
     fill_in :email, with: 'wrongexample@test.com'
     fill_in :password, with: 'password'
     click_button 'Login'
+
+    expect(page).not_to have_content "You're now logged in!"
     expect(page).to have_content "Please check your email and/or password is correct"
   end
 
@@ -32,6 +34,8 @@ feature 'Logging in' do
     fill_in :email, with: 'example@test.com'
     fill_in :password, with: 'wrongpassword'
     click_button 'Login'
+
+    expect(page).not_to have_content "You're now logged in!"
     expect(page).to have_content "Please check your email and/or password is correct"
   end
 end
