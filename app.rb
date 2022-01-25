@@ -48,10 +48,15 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/users/new' do 
-    user = User.create(email: params['email'], password: params['password'])
-    session[:user_id] = user.id
-    session[:user_email] = user.email # will be deleted later
-    redirect '/sessions'
+    if params['password'] == params['password_confirmation']
+      user = User.create(email: params['email'], password: params['password'])
+      session[:user_id] = user.id
+      session[:user_email] = user.email # will be deleted later
+      redirect '/sessions'
+    else 
+      flash[:notice] = "Passwords do not match, try again"
+      redirect('/')
+    end
   end
 
   run! if app_file == $0
