@@ -21,7 +21,13 @@ class User
     result = DatabaseConnection.query(
       "SELECT * FROM users WHERE email = $1;", [email]
     )
-    User.new(id: result[0]['id'], email: result[0]['email'])
+    return nil if result.ntuples.zero?
+    decrypted_password = BCrypt::Password.new(result[0]['password'])
+    if decrypted_password == password
+      User.new(id: result[0]['id'], email: result[0]['email'])
+    else
+     nil
+    end
   end
 
   def self.find(id)
