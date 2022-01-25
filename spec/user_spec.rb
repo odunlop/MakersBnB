@@ -1,7 +1,12 @@
 require 'user'
 require 'pg'
+require_relative '../database_connection_setup'
+require_relative './setup_test_database'
 
 describe User do 
+  before do
+    setup_test_database
+  end
 
   describe '.create' do 
     it 'creates a new user' do 
@@ -17,8 +22,6 @@ describe User do
       db_user = connection.exec("SELECT * FROM users WHERE email = 'idtest@example.com';")
 
       expect(user.id).to eq db_user[0]['id']
-
-      connection.exec("TRUNCATE users;")
     end
   end
 
@@ -28,9 +31,20 @@ describe User do
       authenticated_user = User.authenticate(email: 'test@example.com', password: 'password123')
 
       expect(authenticated_user.id).to eq user.id
+    end
+  end
 
-      connection = PG.connect(dbname: 'makersbnb_test')
-      connection.exec("TRUNCATE users;")
+  describe '.find' do
+    it 'returns nil if there is no ID given' do
+      expect(User.find(nil)).to eq nil
+    end
+    it 'finds a user ID' do
+      user = User.create(email: 'test@example.com', password: 'password123')
+ 
+      result = User.find(user.id)
+      
+      expect(result.id).to eq user.id
+      expect(result.email).to eq user.email
     end
   end
 end
