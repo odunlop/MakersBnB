@@ -8,7 +8,7 @@ feature 'User Sign Up' do
     fill_in :password, with: test_password
     fill_in :password_confirmation, with: test_password
     click_button 'Sign Up'
-    expect(page).to have_content 'Thank you for signing up!'
+    expect(page).to have_content "You're now logged in!"
     expect(page).to have_button 'View Spaces'
   end
 
