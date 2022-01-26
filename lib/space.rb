@@ -30,4 +30,18 @@ class Space
       RETURNING id, name, description, price, creator;", [name, description, price, creator]
     ) 
   end
+
+  def self.mine(user_id)
+    result = DatabaseConnection.query("SELECT * FROM spaces WHERE creator = $1", [user_id])
+    result.map do |space|
+      Space.new(
+        id: space['id'],
+        name: space['name'],
+        description: space['description'],
+        price: space['price'],
+        creator: space['creator'])
+    end
+  end
 end 
+
+#connection.exec_params("DELETE FROM bookmarks WHERE id = $1", [id])

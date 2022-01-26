@@ -28,8 +28,12 @@ class MakersBnB < Sinatra::Base
 
   post '/spaces' do 
     Space.create(name: params[:name], description: params[:description], price: params[:price], creator: session[:user_id] )
-    p session[:user_id]
     redirect '/spaces'
+  end
+
+  get '/spaces/mine' do 
+    @spaces = Space.mine(session[:user_id])
+    erb :'spaces/all_spaces'
   end
 
   get '/sessions/new' do
