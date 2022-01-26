@@ -4,11 +4,12 @@ require 'database_connection'
 feature 'View all spaces' do 
   scenario 'View all spaces on MakersBnB' do
     DatabaseConnection.query(
-        "INSERT INTO spaces (name, description, price) values ($1, $2, $3);", ['Space1', "The first space", "100"]
-      )
-      DatabaseConnection.query(
-        "INSERT INTO spaces (name, description, price) values ($1, $2, $3);", ['Space2', "The second space", "200"]
-      )
+      "INSERT INTO spaces (name, description, price, creator) values ($1, $2, $3, $4);", ['Space1', "The first space", "100", 1]
+    )
+    DatabaseConnection.query(
+      "INSERT INTO spaces (name, description, price, creator) values ($1, $2, $3, $4);", ['Space2', "The second space", "200", 1]
+    )
+
 
     log_in
     click_button 'View Spaces'
