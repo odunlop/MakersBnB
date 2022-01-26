@@ -4,6 +4,7 @@ require 'sinatra/flash'
 require_relative './lib/user'
 require_relative './lib/space'
 require_relative 'database_connection_setup'
+require_relative './lib/space_orla'
 
 class MakersBnB < Sinatra::Base 
   enable :sessions
@@ -18,7 +19,8 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces' do 
-    "All spaces"
+    @spaces = Space.all
+    erb :'spaces/all_spaces'
   end
 
   get '/spaces/new' do 
