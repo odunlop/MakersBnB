@@ -18,6 +18,22 @@ describe Space do
     end
   end
 
+  describe '.create' do 
+    it 'creates a new space in the database' do 
+      Space.create(
+        name: "Test Space", 
+        description: "this is a description",
+        price: '100',
+        creator: '1')
+      
+      spaces = Space.all
+      test_space = DatabaseConnection.query("SELECT * FROM spaces WHERE name = 'Test Space';")
+
+      expect(test_space[0]['description']).to eq "this is a description"
+      expect(spaces.last.id).to eq test_space[0]['id']
+    end
+  end
+
   describe '.mine' do 
     it 'lists all spaces a user has created' do
       DatabaseConnection.query(
