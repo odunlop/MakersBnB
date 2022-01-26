@@ -17,6 +17,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces' do 
+    redirect '/' if session[:user_id] == nil
     "All spaces"
   end
 
