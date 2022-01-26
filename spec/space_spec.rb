@@ -1,4 +1,4 @@
-require 'space_orla'
+require 'space'
 
 describe Space do 
   describe '.all' do

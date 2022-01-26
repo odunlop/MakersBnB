@@ -4,7 +4,6 @@ require 'sinatra/flash'
 require_relative './lib/user'
 require_relative './lib/space'
 require_relative 'database_connection_setup'
-require_relative './lib/space_orla'
 
 class MakersBnB < Sinatra::Base 
   enable :sessions
