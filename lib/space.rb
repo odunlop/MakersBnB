@@ -21,6 +21,7 @@ class Space
         price: space['price'],
         creator: space['creator'])
     end
+  end
 
   def self.create(name:, description:, price:, creator:)
     result = DatabaseConnection.query(
