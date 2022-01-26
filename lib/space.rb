@@ -43,5 +43,3 @@ class Space
     end
   end
 end 
-
-#connection.exec_params("DELETE FROM bookmarks WHERE id = $1", [id])
