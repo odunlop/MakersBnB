@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/flash'
 require_relative './lib/user'
+require_relative './lib/space'
 require_relative 'database_connection_setup'
 
 class MakersBnB < Sinatra::Base 
@@ -21,7 +22,13 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces/new' do 
-    "Form to create new space"
+    erb :"spaces/new_space"
+  end
+
+  post '/spaces' do 
+    Space.create(name: params[:name], description: params[:description], price: params[:price], creator: session[:user_id] )
+    p session[:user_id]
+    redirect '/spaces'
   end
 
   get '/sessions/new' do
@@ -57,6 +64,12 @@ class MakersBnB < Sinatra::Base
       flash[:notice] = "Passwords do not match, try again"
       redirect('/')
     end
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect '/'
   end
 
   run! if app_file == $0
