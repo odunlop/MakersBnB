@@ -1,39 +1,22 @@
-<!DOCTYPE html>
-<html>
-  <head>
-  <style>
-      a:link, a:visited {
-        color: black;
-        padding: 15px 25px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-      }
-      a:hover, a:active {
-        color: #fd0061;
-      }
-  </style>
-    <meta charset="utf-8">
-    <title></title>
-        <title> MakersBnB </title>
-        <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-  <div class="container">
-        <div class="menu">
-        <ul>
-          <li><a href="/sessions/new" id="login">Login</a></li>
-        </ul>
-        </div>
-        <center>
-        <div class="app-text">
-        <p><font color="#8a0017";> <%= flash[:notice] %> </font></p>
-        <h1> Sign up to MakersBnB </h1>
-        <form action="/users/new" method="post">
-        <p> Email Address</p><p> <input type="email" name="email" placeholder="Email address" /></p>
-        <br><p> Password</p><p><input type="password" name="password" placeholder="Enter your password" /></p>
-        <br><p> Confirm password </p><p><input type="password" name="password_confirmation" placeholder="Confirm password" /></p>
-        <br><input type="submit" value=" Sign Up " />
-        </form>
-  </body>
-  </html>
+<div class="container">
+  <div class="menu">
+    <ul>
+      <li><a href="/sessions/new" id="login">Login</a></li>
+    </ul>
+  </div>
+
+  <h2> Sign up to PandaBnB </h2>
+
+  <div class="app-text">
+    <p><font color="#8a0017";> <%= flash[:notice] %> </font></p>
+    <form action="/users/new" method="post">
+      <lable for="email"> Email Address</lable>
+      <input type="email" name="email" placeholder="Email address" />
+      <lable for="password"> Password</lable>
+      <input type="password" name="password" placeholder="Enter your password" />
+      <lable for="password_confirmation"> Confirm password </lable>
+      <input type="password" name="password_confirmation" placeholder="Confirm password" />
+      <input type="submit" value=" Sign Up " />
+    </form>
+  </div>
+</div>

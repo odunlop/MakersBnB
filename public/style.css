@@ -1,58 +1,56 @@
-*{
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+* {
+  font-family: Arial, Helvetica, sans-serif;
 }
-html, 
+
 body {
-    height: 100%;
+  color: #000;
+  text-align: center;
 }
-.container{
-  width: 100%;
-  height: 100%;
-  background: #FAF9F6;
+
+/* headings */
+h1,
+h2 {
+  font-family: 'Lobster', cursive;
 }
-.menu ul{
-  display: inline-flex;
-  margin: 50px;
+
+/* form */
+form input {
+  padding: 5px;
+  border: 2px solid #000;
+  border-radius: 5px;
 }
-.menu ul li{
-  list-style: none;
-  margin: 0 20px;
-  color: #fd0061;
+
+.app-text lable, 
+.app-text input {
+  display: block;
+  text-align: left;
+  margin: 0 auto 15px;
+  width: 25%;
+}
+
+.app-text lable {
+  font-size: 18px;
+  font-weight: bolder;
+  margin-bottom: 0;
+}
+
+/* button hover*/
+input[type="submit"]:hover {
+  color: #fff;
+  background-color: #000;
+  border-color: darkgray;
   cursor: pointer;
 }
-.app-text{
-  width: 50%;
-  color: #0d1118;
-}
-.app-text h1{
-  font-size: 40px;
-  color: #fd0061;
-  width: 640px;
-  margin: 40px;
-}
-.app-text h2{
-  font-size: 20px;
-  color: #8a0017;
-  width: 640px;
-  margin: 40px;
-}
-.app-text p{
-  width: 650px;
+
+/* buttons */
+input[type="submit"] {
+  width: inherit;
   font-size: 15px;
-  margin: 0px 30px 0px 30px;
-  line-height: 25px;
-}
-.app_titles{
-  font-size: 43px;
-  margin: 40px
-}
-.center{
-  margin: auto;
-  text-align: center;
-  color: #c9d1d9;
-  width: 50%;
-  border: 3px solid #fd00da;
-  padding: 10px;
+  font-weight: bolder;
+  margin: 25px auto;
+  padding: 6px;
+  background-color: #fff;
+  border: 3px solid #000;
+  border-radius: 10px;
+  transition: all 0.4s ease-out;
 }

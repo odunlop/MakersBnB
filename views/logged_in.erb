@@ -1,11 +1,14 @@
-You're now logged in! <%= @email %>
-<form action="/spaces">
-<input type="submit" value=" View Spaces " />
-</form>
-<form action="/spaces/new">
-<input type="submit" value=" Add Space " />
-</form>
-<br>
-<form action="/sessions/destroy" method="post">
-  <input type="submit" value="Sign Out" />
-</form>
+<h2>You're now logged in! <%= @email %><h2>
+<div class="container">
+  <form action="/spaces">
+    <input type="submit" value=" View Spaces " />
+  </form>
+  
+  <form action="/spaces/new">
+    <input type="submit" value=" Add Space " />
+  </form>
+
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign Out" />
+  </form>
+</div>
