@@ -1,14 +1,9 @@
 require 'user'
+require_relative 'web_helpers_o'
 
 feature 'Logging in' do 
   scenario 'Existing user can log in' do
-    User.create(email: 'example@test.com', password: 'password')
-    
-    visit '/'
-    find('#login').click
-    fill_in :email, with: 'example@test.com'
-    fill_in :password, with: 'password'
-    click_button 'Login'
+    log_in
     expect(page).to have_content "You're now logged in!"
     expect(page).to have_button 'View Spaces'
   end
