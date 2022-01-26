@@ -5,3 +5,7 @@ You're now logged in! <%= @email %>
 <form action="/spaces/new">
 <input type="submit" value=" Add Space " />
 </form>
+<br>
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign Out" />
+</form>
