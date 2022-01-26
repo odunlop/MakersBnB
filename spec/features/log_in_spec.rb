@@ -1,5 +1,5 @@
 require 'user'
-require_relative 'web_helpers_o'
+require_relative 'web_helpers'
 
 feature 'Logging in' do 
   scenario 'Existing user can log in' do
