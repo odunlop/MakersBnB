@@ -88,7 +88,12 @@ class MakersBnB < Sinatra::Base
 
   get '/spaces/:id' do 
     @space = Space.find(params[:id])
-    @calendar = Calendar.new.generate(30)
+    if params['check-in'] == nil
+      @calendar = Calendar.new.generate(30)
+    else 
+      date = Date.parse(params['check-in'])
+      @calendar = Calendar.new(date).generate(30)
+    end
     erb :'spaces/space'
   end
 

@@ -1,16 +1,27 @@
-<h1><%= @space.name %></h1>
-<p><%= @space.description %></p>
-<p>Price per night <%= @space.price %></p>
-<ul>
-   <% @calendar.each do |date| %>
-     <% if Bookings.get_availability(space_id: @space.id, date: date) %>
-          <form action="/bookings/new" method="post">
-          <%= date %> 
-              <input type="hidden" name="date" value= <%= date %> >
-              <input type="hidden" name="space_id" value=<%= @space.id %>>
-              <input type="submit" value="Book" />
-          </form>
-         <% else %>
-            <%= date %> - Booked
+<div class="container">
+    <h1><%= @space.name %></h1>
+    <p><%= @space.description %></p>
+    <p>Price per night: £<%= @space.price %></p>
+    <form action="/spaces/<%=@space.id%>">
+        <label for="check-in">View availability from:</label>
+        <input type="date" name="check-in" class="input-box"/>
+        <input type="hidden" name="space_id" value=<%= @space.id %>>
+        <input type="submit" value=" Filter " />
+    </form>
+    <center>
+    <div style="height:300px;width:500px;border:1px solid #ccc;overflow:auto;">
+      <% @calendar.each do |date| %>
+        <% if Bookings.get_availability(space_id: @space.id, date: date) %>
+              <p><form action="/bookings/new" method="post">
+              <%= date %> 
+                  <input type="hidden" name="date" value= <%= date %> >
+                  <input type="hidden" name="space_id" value=<%= @space.id %>>
+                  <input type="submit" value="Book" /></p>
+              </form>
+        <% else %>
+              <%= date %> - Booked
         <% end %> 
-    <% end %>
+      <% end %>
+    </div>
+    </center>
+</div>
