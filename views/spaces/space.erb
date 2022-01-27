@@ -1,0 +1,7 @@
+<h1><%= @space.name %></h1>
+<p><%= @space.description %></p>
+<p>Price per night <%= @space.price %></p>
+<ul>
+   <% @calendar.each do |date| %>
+    <li> <%= date %> </li>
+    <% end %>

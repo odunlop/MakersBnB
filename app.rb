@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require 'sinatra/flash'
 require_relative './lib/user'
 require_relative './lib/space'
+require_relative './lib/calendar'
 require_relative 'database_connection_setup'
 
 class MakersBnB < Sinatra::Base 
@@ -78,7 +79,8 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces/:id' do 
-    "Test #{params[:id]}"
+    @space = Space.find(params[:id])
+    @calendar = Calendar.new.generate(30)
     erb :'spaces/space'
   end
 
