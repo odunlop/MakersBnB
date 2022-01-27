@@ -77,5 +77,9 @@ class MakersBnB < Sinatra::Base
     redirect '/'
   end
 
+  get '/spaces/:id' do 
+    "Test #{params[:id]}"
+  end
+
   run! if app_file == $0
 end
