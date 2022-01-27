@@ -1,7 +1,15 @@
-<ul>
-    <% @spaces.each do |space| %>
-      <li> <a href="/spaces/<%=space.id%>" id="<%=space.id%>"><%= space.name %></a>
-      </li>
-    <% end %>
-</ul>
-<a href="/spaces/mine" id="user_spaces">My Spaces</a>
+<div>
+  <h2>Spaces</h2>
+  <form action="/spaces/filter" method="post">
+  Available on:
+  <input type="date" name="filter_date" value="<%= @filter_date %>">&nbsp;<input type="submit" value="Get Availability">
+  <% if @filter_date != nil %><a href="/spaces">Clear Filter</a><% end %>
+  </form>
+  <ul>
+      <% @spaces.each do |space| %>
+        <li> <a href="/spaces/<%=space.id%>" id="<%=space.id%>"><%= space.name %></a>
+        </li>
+      <% end %>
+  </ul>
+  <a href="/spaces/mine" id="user_spaces">My Spaces</a>
+</div>
