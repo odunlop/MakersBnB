@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require 'sinatra/flash'
 require_relative './lib/user'
 require_relative './lib/space'
+require_relative './lib/bookings'
 require_relative './lib/calendar'
 require_relative 'database_connection_setup'
 
@@ -45,6 +46,12 @@ class MakersBnB < Sinatra::Base
   get '/sessions' do 
     @email = session[:user_email]
     erb(:logged_in)
+  end
+
+  post '/bookings/new' do 
+    Bookings.create(space_id: params['space_id'], date: params['date'], confirmed: false, user_id: session[:user_id])
+    session[:date] = params['date']
+    redirect '/spaces'
   end
 
   post '/sessions' do 
