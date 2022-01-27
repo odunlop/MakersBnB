@@ -5,7 +5,7 @@ require_relative './lib/user'
 require_relative './lib/space'
 require_relative './lib/bookings'
 require_relative './lib/calendar'
-require_relative './lib/alice_bookings'
+require_relative './lib/bookings'
 require_relative 'database_connection_setup'
 
 class MakersBnB < Sinatra::Base 
