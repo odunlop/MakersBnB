@@ -42,4 +42,14 @@ class Space
         creator: space['creator'])
     end
   end
+
+  def self.find(space_id)
+    space = DatabaseConnection.query("SELECT * FROM spaces WHERE id = $1", [space_id])
+    Space.new(
+      id: space[0]['id'],
+      name: space[0]['name'],
+      description: space[0]['description'],
+      price: space[0]['price'],
+      creator: space[0]['creator'])
+  end
 end 
