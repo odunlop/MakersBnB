@@ -1,4 +1,4 @@
-require 'alice_bookings'
+require 'bookings'
 require 'setup_test_database'
 
 describe Bookings do
