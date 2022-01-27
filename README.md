@@ -75,21 +75,21 @@ I'd like to give my spaces a name, description and price
 For the next user stories we used the following diagram to plan how this functionality would work:
 ![A domain diagram explaining how we planned to create the booking tool](./assets/img/Booking.png)
 
-### User Story Five :construction:
+### User Story Five :white_check_mark:
 ```
 As a user
-So that I can show when my space is available
-I'd like to specify the dates it's available
+So that I can see when a space is available
+I'd like to filter by avaliable dates
 ```
 
-### User Story Six :construction:
+### User Story Six :white_check_mark:
 ```
 As a user
 So that I can hire a space
 I'd like to be able to book a space for a day
 ```
 
-### User Story Seven
+### User Story Seven :construction:
 ```
 As a user
 So that I can manage my spaces
