@@ -3,10 +3,17 @@
 <p>Price per night <%= @space.price %></p>
 <ul>
    <% @calendar.each do |date| %>
-    <li> <% if Bookings.get_availability(space_id: @space.id, date: date) %>
-            <%= date %> - Avaliable
+     <% if Bookings.get_availability(space_id: @space.id, date: date) %>
+          <form action="/bookings/new" method="post">
+          <%= date %> 
+          <input type="hidden" name="date" value= <%= date %> >
+          <input type="hidden" name="space_id" value=<%= @space.id %>>
+          <input type="submit" value="Book" />
+        </form>
          <% else %>
             <%= date %> - Booked
         <% end %> 
-    </li>
+    
     <% end %>
+
+
