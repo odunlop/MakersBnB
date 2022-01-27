@@ -3,5 +3,10 @@
 <p>Price per night <%= @space.price %></p>
 <ul>
    <% @calendar.each do |date| %>
-    <li> <%= date %> </li>
+    <li> <% if Bookings.get_availability(space_id: @space.id, date: date) %>
+            <%= date %> - Avaliable
+         <% else %>
+            <%= date %> - Booked
+        <% end %> 
+    </li>
     <% end %>
