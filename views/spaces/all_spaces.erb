@@ -5,11 +5,14 @@
   <input type="date" name="filter_date" value="<%= @filter_date %>">&nbsp;<input type="submit" value="Get Availability">
   <% if @filter_date != nil %><a href="/spaces">Clear Filter</a><% end %>
   </form>
-  <ul>
       <% @spaces.each do |space| %>
-        <li> <a href="/spaces/<%=space.id%>" id="<%=space.id%>"><%= space.name %></a>
-        </li>
+      <div class="container">
+        <br>
+        <b><a href="/spaces/<%=space.id%>" id="<%=space.id%>"><%= space.name %></a></b><br>
+        <i><%= space.description %></i><br>
+        Price: £<%= space.price %> per night
+      </div>
       <% end %>
-  </ul>
+  <br><br>
   <a href="/spaces/mine" id="user_spaces">My Spaces</a>
 </div>
