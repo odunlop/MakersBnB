@@ -50,8 +50,9 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/bookings/new' do 
-    Bookings.create(space_id: params['space_id'], date: params['date'], confirmed: false, user_id: session[:user_id])
+    Bookings.create(space_id: params['space_id'], date: params['date'], confirmed: 'FALSE', user_id: session[:user_id])
     session[:date] = params['date']
+    flash[:notice] = "Booking confirmed!"
     redirect '/spaces'
   end
 

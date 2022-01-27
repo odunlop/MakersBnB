@@ -1,3 +1,4 @@
+<p><%= flash[:notice] %></p>
 <ul>
     <% @spaces.each do |space| %>
       <li> <a href="/spaces/<%=space.id%>" id="<%=space.id%>"><%= space.name %></a>
