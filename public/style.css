@@ -34,14 +34,6 @@ form input {
   margin-bottom: 0;
 }
 
-/* button hover*/
-input[type="submit"]:hover {
-  color: #fff;
-  background-color: #000;
-  border-color: darkgray;
-  cursor: pointer;
-}
-
 /* buttons */
 input[type="submit"] {
   width: inherit;
@@ -53,4 +45,12 @@ input[type="submit"] {
   border: 3px solid #000;
   border-radius: 10px;
   transition: all 0.4s ease-out;
+}
+
+/* button hover*/
+input[type="submit"]:hover {
+  color: #fff;
+  background-color: #000;
+  border-color: darkgray;
+  cursor: pointer;
 }
