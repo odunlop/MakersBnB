@@ -1,58 +1,93 @@
-*{
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+* {
+  font-family: Arial, Helvetica, sans-serif;
 }
-html, 
+
 body {
-    height: 100%;
-}
-.container{
-  width: 100%;
-  height: 100%;
-  background: #FAF9F6;
-}
-.menu ul{
-  display: inline-flex;
-  margin: 50px;
-}
-.menu ul li{
-  list-style: none;
-  margin: 0 20px;
-  color: #fd0061;
-  cursor: pointer;
-}
-.app-text{
-  width: 50%;
-  color: #0d1118;
-}
-.app-text h1{
-  font-size: 40px;
-  color: #fd0061;
-  width: 640px;
-  margin: 40px;
-}
-.app-text h2{
-  font-size: 20px;
-  color: #8a0017;
-  width: 640px;
-  margin: 40px;
-}
-.app-text p{
-  width: 650px;
-  font-size: 15px;
-  margin: 0px 30px 0px 30px;
-  line-height: 25px;
-}
-.app_titles{
-  font-size: 43px;
-  margin: 40px
-}
-.center{
-  margin: auto;
+  color: #000;
   text-align: center;
-  color: #c9d1d9;
-  width: 50%;
-  border: 3px solid #fd00da;
-  padding: 10px;
+}
+
+/* headings */
+h1,
+h2 {
+  font-family: 'Lobster', cursive;
+}
+
+/* menu */
+.menu ul {
+  list-style: none;
+  padding: 20px;
+}
+
+.menu li {
+  position: absolute;
+  right: 10%;
+}
+
+.menu a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* container */
+.container {
+  width: 40%;
+  margin: 30px auto 0;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 10px 9px #888;
+  padding-bottom: 15px;
+}
+
+/* form */
+.input-box,
+form input {
+  padding: 5px;
+  border: 2px solid #000;
+  border-radius: 5px;
+}
+
+.container labeL, 
+.container input {
+  display: block;
+  text-align: left;
+  margin: 0 auto 15px;
+  width: 33%;
+}
+
+.container label {
+  font-size: 18px;
+  font-weight: bolder;
+  margin-bottom: 0;
+}
+
+/* buttons */
+input[type="submit"],
+.menu a {
+  width: inherit;
+  font-size: 15px;
+  font-weight: bolder;
+  margin: 25px auto;
+  padding: 6px;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 5px;
+  transition: all 0.4s ease-out;
+}
+
+/* buttons for logged in view */
+#logged-in form {
+  display: inline-block;
+  margin: 0 30px;
+}
+
+
+/* button hover*/
+input[type="submit"]:hover,
+.menu a:hover {
+  color: #fff;
+  background-color: #000;
+  border-color: darkgray;
+  cursor: pointer;
 }
