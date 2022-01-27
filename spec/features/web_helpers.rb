@@ -38,7 +38,7 @@ def set_up_fake_bookings
   DatabaseConnection.query("INSERT INTO spaces (name, description, price, creator) VALUES ('Country Manor', 'Description', '250', '1');")
   DatabaseConnection.query("INSERT INTO spaces (name, description, price, creator) VALUES ('City Apartment', 'Description', '100', '1');")
 
-  DatabaseConnection.query("INSERT INTO bookings (space_id, date, confirmed, user_id) VALUES ('1', '2022-02-08', 'False', '2');")
+  DatabaseConnection.query("INSERT INTO bookings (space_id, date, confirmed, user_id) VALUES ('1', '2022-02-08', 'True', '2');")
   DatabaseConnection.query("INSERT INTO bookings (space_id, date, confirmed, user_id) VALUES ('2', '2022-02-08', 'False', '2');")
   DatabaseConnection.query("INSERT INTO bookings (space_id, date, confirmed, user_id) VALUES ('2', '2022-02-09', 'True', '2');") 
 end
