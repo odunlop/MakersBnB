@@ -13,42 +13,79 @@ h2 {
   font-family: 'Lobster', cursive;
 }
 
+/* menu */
+.menu ul {
+  list-style: none;
+  padding: 20px;
+}
+
+.menu li {
+  position: absolute;
+  right: 10%;
+}
+
+.menu a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* container */
+.container {
+  width: 40%;
+  margin: 30px auto 0;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 10px 9px #888;
+  padding-bottom: 15px;
+}
+
 /* form */
+.input-box,
 form input {
   padding: 5px;
   border: 2px solid #000;
   border-radius: 5px;
 }
 
-.app-text lable, 
-.app-text input {
+.container labeL, 
+.container input {
   display: block;
   text-align: left;
   margin: 0 auto 15px;
-  width: 25%;
+  width: 33%;
 }
 
-.app-text lable {
+.container label {
   font-size: 18px;
   font-weight: bolder;
   margin-bottom: 0;
 }
 
 /* buttons */
-input[type="submit"] {
+input[type="submit"],
+.menu a {
   width: inherit;
   font-size: 15px;
   font-weight: bolder;
   margin: 25px auto;
   padding: 6px;
   background-color: #fff;
-  border: 3px solid #000;
-  border-radius: 10px;
+  border: 2px solid #000;
+  border-radius: 5px;
   transition: all 0.4s ease-out;
 }
 
+/* buttons for logged in view */
+#logged-in form {
+  display: inline-block;
+  margin: 0 30px;
+}
+
+
 /* button hover*/
-input[type="submit"]:hover {
+input[type="submit"]:hover,
+.menu a:hover {
   color: #fff;
   background-color: #000;
   border-color: darkgray;

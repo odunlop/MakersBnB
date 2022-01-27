@@ -4,17 +4,16 @@
     </ul>
   </div>
 
-  <h2> Sign up to PandaBnB </h2>
-
 <div class="container">
+  <h2> Sign up to PandaBnB </h2>
   <div class="app-text">
     <p><font color="#8a0017";> <%= flash[:notice] %> </font></p>
     <form action="/users/new" method="post">
-      <lable for="email"> Email Address</lable>
+      <label for="email"> Email Address</label>
       <input type="email" name="email" placeholder="Email address" />
-      <lable for="password"> Password</lable>
+      <label for="password"> Password</label>
       <input type="password" name="password" placeholder="Enter your password" />
-      <lable for="password_confirmation"> Confirm password </lable>
+      <label for="password_confirmation"> Confirm password </label>
       <input type="password" name="password_confirmation" placeholder="Confirm password" />
       <input type="submit" value=" Sign Up " />
     </form>
