@@ -79,6 +79,7 @@ class MakersBnB < Sinatra::Base
 
   get '/spaces/:id' do 
     "Test #{params[:id]}"
+    erb :'spaces/space'
   end
 
   run! if app_file == $0

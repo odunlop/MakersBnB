@@ -50,4 +50,20 @@ describe Space do
 
     end
   end
+
+  describe '.find' do 
+    it 'returns the info of a specific space' do 
+      DatabaseConnection.query(
+        "INSERT INTO spaces (name, description, price, creator) values ($1, $2, $3, $4);", ['Space1', "The first space", "100", 1]
+      )
+      spaces = Space.all
+      space_id = Space.all.first.id
+      space = Space.find(space_id)
+
+      expect(space.creator).to eq '1'
+      expect(space.name).to eq 'Space1'
+      expect(space.description).to eq 'The first space'
+      expect(space.price).to eq '100'
+    end
+  end
 end
