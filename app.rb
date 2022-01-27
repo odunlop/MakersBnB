@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require 'sinatra/flash'
 require_relative './lib/user'
 require_relative './lib/space'
+require_relative './lib/calendar'
 require_relative 'database_connection_setup'
 
 class MakersBnB < Sinatra::Base 
@@ -28,8 +29,12 @@ class MakersBnB < Sinatra::Base
 
   post '/spaces' do 
     Space.create(name: params[:name], description: params[:description], price: params[:price], creator: session[:user_id] )
-    p session[:user_id]
     redirect '/spaces'
+  end
+
+  get '/spaces/mine' do 
+    @spaces = Space.mine(session[:user_id])
+    erb :'spaces/all_spaces'
   end
 
   get '/sessions/new' do
@@ -71,6 +76,12 @@ class MakersBnB < Sinatra::Base
     session.clear
     flash[:notice] = 'You have signed out.'
     redirect '/'
+  end
+
+  get '/spaces/:id' do 
+    @space = Space.find(params[:id])
+    @calendar = Calendar.new.generate(30)
+    erb :'spaces/space'
   end
 
   run! if app_file == $0

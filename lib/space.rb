@@ -30,4 +30,26 @@ class Space
       RETURNING id, name, description, price, creator;", [name, description, price, creator]
     ) 
   end
+
+  def self.mine(user_id)
+    result = DatabaseConnection.query("SELECT * FROM spaces WHERE creator = $1", [user_id])
+    result.map do |space|
+      Space.new(
+        id: space['id'],
+        name: space['name'],
+        description: space['description'],
+        price: space['price'],
+        creator: space['creator'])
+    end
+  end
+
+  def self.find(space_id)
+    space = DatabaseConnection.query("SELECT * FROM spaces WHERE id = $1", [space_id])
+    Space.new(
+      id: space[0]['id'],
+      name: space[0]['name'],
+      description: space[0]['description'],
+      price: space[0]['price'],
+      creator: space[0]['creator'])
+  end
 end 

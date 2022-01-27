@@ -1,5 +1,7 @@
 <ul>
     <% @spaces.each do |space| %>
-      <li> <%= space.name %> : <%= space.description %> </li>
+      <li> <a href="/spaces/<%=space.id%>" id="<%=space.id%>"><%= space.name %></a>
+      </li>
     <% end %>
 </ul>
+<a href="/spaces/mine" id="user_spaces">My Spaces</a>
