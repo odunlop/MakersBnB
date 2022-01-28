@@ -3,7 +3,7 @@ require 'Date'
 
 class Bookings
 
-  def initialize(id, space_id, date, confirmed, user_id)
+  def initialize(id:, space_id:, date:, confirmed:, user_id:)
     @id = id
     @space_id = space_id
     @date = date
@@ -34,4 +34,15 @@ class Bookings
     Bookings.new(result[0]['id'], result[0]['space_id'], result[0]['date'], result[0]['confirmed'], result[0]['user_id'])
   end
 
+  def self.get_bookings(user_id:)
+    result = DatabaseConnection.query("SELECT * FROM bookings WHERE user_id = $1", [user_id])
+    result.map do |book|
+      Bookings.new(
+        id: book['id'],
+        name: book['space_id'],
+        description: book['date'],
+        price: book['confirmed'],
+        creator: book['user_id'])
+    end
+  end
 end

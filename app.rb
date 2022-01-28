@@ -5,7 +5,6 @@ require_relative './lib/user'
 require_relative './lib/space'
 require_relative './lib/bookings'
 require_relative './lib/calendar'
-require_relative './lib/alice_bookings'
 require_relative 'database_connection_setup'
 
 class MakersBnB < Sinatra::Base 
@@ -49,10 +48,19 @@ class MakersBnB < Sinatra::Base
     erb(:logged_in)
   end
 
+  get '/spaces/requests' do
+    @requests = Bookings.get_bookings(user_id: session[:user_id])
+     erb :'spaces/requests'
+  end
+
   post '/bookings/new' do 
     Bookings.create(space_id: params['space_id'], date: params['date'], confirmed: false, user_id: session[:user_id])
     session[:date] = params['date']
     redirect '/spaces'
+  end
+
+  post '/spaces/requests' do
+    redirect '/spaces/requests'
   end
 
   post '/sessions' do 
