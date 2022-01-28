@@ -11,7 +11,10 @@ describe Bookings do
       expect(Bookings.get_availability(space_id: 2, date: '2022-02-10')).to eq true
     end
     it 'returns false when a space is not available on a given date' do
-      expect(Bookings.get_availability(space_id: 1, date: '2022-02-08')).to eq false
+      expect(Bookings.get_availability(space_id: 2, date: '2022-02-09')).to eq false
+    end
+    it 'a space is still available on a date if the booking is not yet confirmed' do
+      expect(Bookings.get_availability(space_id: 2, date: '2022-02-08')).to eq true
     end
   end
 
