@@ -3,8 +3,8 @@
     <p><%= @space.description %></p>
     <p>Price per night: £<%= @space.price %></p>
     <form action="/spaces/<%=@space.id%>">
-        <label for="check-in">View availability from:</label>
-        <input type="date" name="check-in" class="input-box"/>
+        <label for="filter_date">View availability from:</label>
+        <input type="date" name="filter_date" class="input-box"/>
         <input type="hidden" name="space_id" value=<%= @space.id %>>
         <input type="submit" value=" Filter " />
     </form>

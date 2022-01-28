@@ -42,3 +42,10 @@ def set_up_fake_bookings
   DatabaseConnection.query("INSERT INTO bookings (space_id, date, confirmed, user_id) VALUES ('2', '2022-02-08', 'False', '2');")
   DatabaseConnection.query("INSERT INTO bookings (space_id, date, confirmed, user_id) VALUES ('2', '2022-02-09', 'True', '2');") 
 end
+
+def view_cottage
+  set_up_fake_bookings
+  log_in
+  click_button 'View Spaces'
+  click_link 'Little Cottage'
+end

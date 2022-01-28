@@ -10,7 +10,7 @@
   <h2>Spaces</h2>
   <form action="/spaces/filter" method="post">
     <label for="filter_date">Available on: </label>
-    <input type="date" name="filter_date" value="<%= @filter_date %>">
+    <input type="date" name="filter_date" value="<%= @filter_date %>" required>
     <input type="submit" value="Get Availability">
   <% if @filter_date != nil %><a href="/spaces">Clear Filter</a><% end %>
   </form>

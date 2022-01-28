@@ -12,6 +12,6 @@ class Calendar
       @calendar << (@date + counter).strftime("%Y/%m/%d")
       counter += 1
     end
-    return @calendar
+    @calendar
   end
 end

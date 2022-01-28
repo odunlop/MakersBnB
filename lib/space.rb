@@ -14,12 +14,7 @@ class Space
   def self.all
     result = DatabaseConnection.query("SELECT * from spaces")
     result.map do |space|
-      Space.new(
-        id: space['id'],
-        name: space['name'],
-        description: space['description'],
-        price: space['price'],
-        creator: space['creator'])
+      self.wrap(space)
     end
   end
 
@@ -34,22 +29,23 @@ class Space
   def self.mine(user_id)
     result = DatabaseConnection.query("SELECT * FROM spaces WHERE creator = $1", [user_id])
     result.map do |space|
-      Space.new(
-        id: space['id'],
-        name: space['name'],
-        description: space['description'],
-        price: space['price'],
-        creator: space['creator'])
+      self.wrap(space)
     end
   end
 
   def self.find(space_id)
     space = DatabaseConnection.query("SELECT * FROM spaces WHERE id = $1", [space_id])
+    self.wrap(space[0])
+  end
+  
+  private
+
+  def self.wrap(space)
     Space.new(
-      id: space[0]['id'],
-      name: space[0]['name'],
-      description: space[0]['description'],
-      price: space[0]['price'],
-      creator: space[0]['creator'])
+      id: space['id'],
+      name: space['name'],
+      description: space['description'],
+      price: space['price'],
+      creator: space['creator'])
   end
 end 
