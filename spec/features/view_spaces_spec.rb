@@ -22,4 +22,16 @@ feature 'View spaces' do
     expect(page).not_to have_content 'Space1'
     expect(page).not_to have_content 'Space2'
   end
+
+  scenario 'User can view avaliability of a specific day' do 
+    set_up_fake_bookings
+    log_in
+    click_button 'View Spaces'
+    fill_in :filter_date, with: '2022/02/09'
+    click_button 'Get Availability'
+
+    expect(page).not_to have_content 'Country Manor'
+    expect(page).to have_content 'Little Cottage'
+    expect(page).to have_content 'City Apartment'
+  end
 end
