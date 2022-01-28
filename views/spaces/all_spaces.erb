@@ -1,19 +1,27 @@
-<div>
+<style>
+  .menu #login,
+  .menu #all-spaces {
+    display: none;
+  }
+</style>
+
+<div class="container">
   <p><%= flash[:notice] %></p>
   <h2>Spaces</h2>
   <form action="/spaces/filter" method="post">
-  Available on:
-  <input type="date" name="filter_date" value="<%= @filter_date %>" required />&nbsp;<input type="submit" value="Get Availability" />
+    <label for="filter_date">Available on: </label>
+    <input type="date" name="filter_date" value="<%= @filter_date %>" required>
+    <input type="submit" value="Get Availability">
   <% if @filter_date != nil %><a href="/spaces">Clear Filter</a><% end %>
   </form>
-      <% @spaces.each do |space| %>
-      <div class="container">
-        <br>
-        <b><a href="/spaces/<%=space.id%>" id="<%=space.id%>"><%= space.name %></a></b><br>
-        <i><%= space.description %></i><br>
-        Price: £<%= space.price %> per night
-      </div>
+
+  <% @spaces.each do |space| %>
+  <a href="/spaces/<%=space.id%>" class="space-list-item" id="<%=space.id%>">
+    <div class="mini-container">
+      <h3><%= space.name.capitalize %></h3>
+      <i><%= space.description %></i><br>
+      <span><b>Price:</b> £<%= space.price %> per night</span>
+    </div>
+  </a>
       <% end %>
-  <br><br>
-  <a href="/spaces/mine" id="user_spaces">My Spaces</a>
 </div>

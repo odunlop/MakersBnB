@@ -12,6 +12,18 @@
   </head>
   
   <body>
+    <div class="menu">
+      <ul>
+        <li id="login"><a href="/sessions/new">Login</a></li>
+        <li id="home"><a href="/" >Home</a></li>
+        <li id="all-spaces"><a href="/spaces">All Spaces</a></li>
+        <li id="user-spaces"><a href="/spaces/mine">My Spaces</a></li>
+        <li id="sign-out">
+          <form action="/sessions/destroy" method="post">
+          <input type="submit" value="Sign Out" />
+          </form>
+        </li>
+      </ul>
+    </div>
     <%= yield %>
   </body>
-</html>
