@@ -4,8 +4,7 @@ require_relative 'web_helpers'
 feature 'Logging in' do 
   scenario 'Existing user can log in' do
     log_in
-    expect(page).to have_content "You're now logged in!"
-    expect(page).to have_button 'View Spaces'
+    expect(page).to have_current_path("/sessions")
   end
 
   scenario 'User puts in wrong email address' do 
@@ -17,7 +16,6 @@ feature 'Logging in' do
     fill_in :password, with: 'password'
     click_button 'Login'
 
-    expect(page).not_to have_content "You're now logged in!"
     expect(page).to have_content "Please check your email and/or password is correct"
   end
 
@@ -30,7 +28,6 @@ feature 'Logging in' do
     fill_in :password, with: 'wrongpassword'
     click_button 'Login'
 
-    expect(page).not_to have_content "You're now logged in!"
     expect(page).to have_content "Please check your email and/or password is correct"
   end
 end
