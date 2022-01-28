@@ -8,6 +8,6 @@ feature 'View Avaliability' do
     click_link 'Little Cottage'
     expect(page).not_to have_content "Country Manor"
     expect(page).to have_content "Description"
-    expect(page).to have_content "2022/02/08 - Booked"
+    expect(page).to have_content "2022/02/08\nUnavaliable"
   end
 end

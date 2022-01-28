@@ -5,7 +5,7 @@ require_relative './lib/user'
 require_relative './lib/space'
 require_relative './lib/bookings'
 require_relative './lib/calendar'
-require_relative './lib/alice_bookings'
+require_relative './lib/bookings'
 require_relative 'database_connection_setup'
 
 class MakersBnB < Sinatra::Base 
@@ -62,8 +62,9 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/bookings/new' do 
-    Bookings.create(space_id: params['space_id'], date: params['date'], confirmed: false, user_id: session[:user_id])
+    Bookings.create(space_id: params['space_id'], date: params['date'], confirmed: 'FALSE', user_id: session[:user_id])
     session[:date] = params['date']
+    flash[:notice] = "Booking confirmed!"
     redirect '/spaces'
   end
 
@@ -100,7 +101,12 @@ class MakersBnB < Sinatra::Base
 
   get '/spaces/:id' do 
     @space = Space.find(params[:id])
-    @calendar = Calendar.new.generate(30)
+    if params['check-in'] == nil
+      @calendar = Calendar.new.generate(30)
+    else 
+      date = Date.parse(params['check-in'])
+      @calendar = Calendar.new(date).generate(30)
+    end
     erb :'spaces/space'
   end
 
