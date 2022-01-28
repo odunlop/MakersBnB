@@ -18,9 +18,14 @@
         <li id="home"><a href="/" >Home</a></li>
         <li id="all-spaces"><a href="/spaces">All Spaces</a></li>
         <li id="user-spaces"><a href="/spaces/mine">My Spaces</a></li>
+        <li id="view-requests">
+          <form action="spaces/requests" method="post">
+            <input type="submit" value="View Requests" />
+          </form>
+        </li>
         <li id="sign-out">
           <form action="/sessions/destroy" method="post">
-          <input type="submit" value="Sign Out" />
+            <input type="submit" value="Sign Out" />
           </form>
         </li>
       </ul>
