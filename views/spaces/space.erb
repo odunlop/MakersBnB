@@ -1,3 +1,8 @@
+
+<form action="/spaces">
+<input type="submit" value="Back to all spaces" />
+</form>
+
 <div class="container">
     <h1><%= @space.name %></h1>
     <p><%= @space.description %></p>
@@ -9,7 +14,7 @@
         <input type="submit" value=" Filter " />
     </form>
     <center>
-    <div style="height:500px;width:600px;border:1px solid #ccc;overflow:auto;">
+    <div style="height:350px;width:600px;border:1px solid #ccc;overflow:auto;">
       <% @calendar.each do |date| %>
         <% if Bookings.get_availability(space_id: @space.id, date: date) %>
               <div class="container">
