@@ -16,9 +16,9 @@ feature 'View spaces' do
     misc_spaces
     log_in
     list_panda_space
-    find('#user_spaces').click
+    click_link('My Spaces')
     
-    expect(page).to have_content 'Panda Space'
+    expect(page).to have_content 'Panda space'
     expect(page).not_to have_content 'Space1'
     expect(page).not_to have_content 'Space2'
   end
@@ -31,7 +31,7 @@ feature 'View spaces' do
     click_button 'Get Availability'
 
     expect(page).not_to have_content 'Country Manor'
-    expect(page).to have_content 'Little Cottage'
-    expect(page).to have_content 'City Apartment'
+    expect(page).to have_content 'Little cottage'
+    expect(page).to have_content 'City apartment'
   end
 end

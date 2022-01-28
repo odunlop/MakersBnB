@@ -5,6 +5,6 @@ feature 'Add new space' do
     log_in
     list_panda_space
 
-    expect(page).to have_content 'Panda Space'
+    expect(page).to have_content 'Panda space'
   end
 end
