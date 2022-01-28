@@ -1,3 +1,10 @@
+<style>
+  .menu #login,
+  .menu #all-spaces {
+    display: none;
+  }
+</style>
+
 <div class="container">
     <h1><%= @space.name %></h1>
     <p><%= @space.description %></p>
@@ -8,10 +15,10 @@
         <input type="hidden" name="space_id" value=<%= @space.id %>>
         <input type="submit" value=" Filter " />
     </form>
-    <div style="height:350px;width:600px;border:1px solid #ccc;overflow:auto;">
+    <div class="mini-container" id="space-list-container">
       <% @calendar.each do |date| %>
         <% if Bookings.get_availability(space_id: @space.id, date: date) %>
-              <div class="container">
+              <div id="space-list">
               <form action="/bookings/new" method="post">
               <%= date %> 
                   <input type="hidden" name="date" value= <%= date %> >
@@ -20,7 +27,7 @@
               </form>
               </div>
         <% else %>
-              <div class="container">
+              <div id="space-list">
               <p><%= date %></p><br> Unavaliable
               </div>
         <% end %> 

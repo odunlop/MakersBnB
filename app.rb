@@ -56,10 +56,6 @@ class MakersBnB < Sinatra::Base
     erb(:login_form)
   end
 
-  get '/sessions' do 
-    erb(:logged_in)
-  end
-
   post '/bookings/new' do 
     Bookings.create(space_id: params['space_id'], date: params['date'], confirmed: 'FALSE', user_id: session[:user_id])
     session[:date] = params['date']
@@ -85,7 +81,7 @@ class MakersBnB < Sinatra::Base
       user = User.create(email: params['email'], password: params['password'])
       session[:user_id] = user.id
       session[:user_email] = user.email # will be deleted later
-      redirect '/sessions'
+      redirect '/spaces'
     else 
       flash[:notice] = "Passwords do not match, try again"
       redirect('/')
