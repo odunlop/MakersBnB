@@ -1,8 +1,19 @@
-<p><%= flash[:notice] %></p>
-<ul>
-    <% @spaces.each do |space| %>
-      <li> <a href="/spaces/<%=space.id%>" id="<%=space.id%>"><%= space.name %></a>
-      </li>
-    <% end %>
-</ul>
-<a href="/spaces/mine" id="user_spaces">My Spaces</a>
+<div>
+  <p><%= flash[:notice] %></p>
+  <h2>Spaces</h2>
+  <form action="/spaces/filter" method="post">
+  Available on:
+  <input type="date" name="filter_date" value="<%= @filter_date %>">&nbsp;<input type="submit" value="Get Availability">
+  <% if @filter_date != nil %><a href="/spaces">Clear Filter</a><% end %>
+  </form>
+      <% @spaces.each do |space| %>
+      <div class="container">
+        <br>
+        <b><a href="/spaces/<%=space.id%>" id="<%=space.id%>"><%= space.name %></a></b><br>
+        <i><%= space.description %></i><br>
+        Price: £<%= space.price %> per night
+      </div>
+      <% end %>
+  <br><br>
+  <a href="/spaces/mine" id="user_spaces">My Spaces</a>
+</div>
