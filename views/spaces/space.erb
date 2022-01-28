@@ -8,7 +8,6 @@
         <input type="hidden" name="space_id" value=<%= @space.id %>>
         <input type="submit" value=" Filter " />
     </form>
-    <center>
     <div style="height:350px;width:600px;border:1px solid #ccc;overflow:auto;">
       <% @calendar.each do |date| %>
         <% if Bookings.get_availability(space_id: @space.id, date: date) %>
