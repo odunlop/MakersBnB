@@ -61,6 +61,8 @@ h3 {
   border-radius: 10px;
   box-shadow: 10px 9px #000;
   padding-bottom: 15px;
+  height: auto; 
+  overflow: scroll;
 }
 
 .mini-container {
@@ -69,6 +71,25 @@ h3 {
   margin: 20px auto;
   border: 1.5px solid rgb(206, 206, 206);
   border-radius: 7px;
+}
+
+#space-list-container {
+  border: 1.5px solid #000;
+  height: 40vh;
+  overflow: scroll;
+}
+
+#space-list {
+  border: 1px solid #888;
+  border-radius: 5px;
+  display: inline-block;
+  width: 30%;
+  padding-top: 5px;
+  margin: 5px auto auto 5px;
+}
+
+#space-list input {
+  margin: 5px auto;
 }
 
 .space-list-item .mini-container:hover {
