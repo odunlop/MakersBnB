@@ -23,6 +23,21 @@ describe Bookings do
       result = Bookings.get_spaces(date: '2022-02-09')
       expect(result[0].name).to eq 'Little Cottage'
     end
+  end
 
+  describe '.create' do
+    it 'creates a new booking' do
+      test = Bookings.create(
+        space_id: '1', 
+        date: '2022-02-10', 
+        confirmed: 'False', 
+        user_id: '2')
+      booking = DatabaseConnection.query("SELECT * FROM bookings WHERE date = '2022-02-10';")
+
+      expect(test.id).to eq booking[0]['id']
+      expect(booking[0]['date']).to eq '2022-02-10'
+      expect(booking[0]['user_id']).to eq '2'
+      expect(booking[0]['space_id']).to eq '1'
+    end
   end
 end
