@@ -1,0 +1,14 @@
+<form action='/spaces/requests/accept' method="post">
+<h1>Request Page</h1>
+  <% @requests.each do |request| %>
+  <div class="container">
+    <br>
+       <% @user = Space.find(request.space_id) %>
+         <%= @user.name%>
+         : Booking requested by user <%=request.user_id%>
+    <br>
+      <input type="hidden" name="space_id" value= <%= request.space_id %> >
+      <input type="submit" value="Accept" />
+  </div>
+  </form>
+  <% end %>
