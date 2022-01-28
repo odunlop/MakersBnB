@@ -57,7 +57,6 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/sessions' do 
-    @email = session[:user_email]
     erb(:logged_in)
   end
 
