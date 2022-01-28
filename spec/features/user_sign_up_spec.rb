@@ -28,5 +28,4 @@ feature 'User Sign Up' do
     expect(page).not_to have_content "You're now logged in!"
     expect(page).to have_content "Passwords do not match, try again"
   end
-
 end
