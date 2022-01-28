@@ -5,9 +5,9 @@ feature 'View Avaliability' do
     set_up_fake_bookings
     log_in
     click_button 'View Spaces'
-    click_link 'Little Cottage'
-    expect(page).not_to have_content "Country Manor"
+    click_link 'Country Manor'
+    expect(page).not_to have_content "Little Cottage"
     expect(page).to have_content "Description"
-    expect(page).to have_content "2022/02/08\nUnavaliable"
+    expect(page).to have_content "2022/02/09\nUnavaliable"
   end
 end
