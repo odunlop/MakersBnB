@@ -12,7 +12,7 @@ def log_in
 end
 
 def list_panda_space
-  click_button 'Add Space'
+  visit '/spaces/new'
   fill_in :name, with: 'Panda Space'
   fill_in :description, with: 'Panda fun for Team Panda'
   fill_in :price, with: '500'

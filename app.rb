@@ -56,6 +56,11 @@ class MakersBnB < Sinatra::Base
     erb(:login_form)
   end
 
+  get '/sessions' do
+    @email = session[:user_email]
+  erb(:logged_in)
+  end
+
   get '/spaces/requests' do
     @requests = Bookings.get_bookings(user_id: session[:user_id])
     erb :'spaces/requests'
