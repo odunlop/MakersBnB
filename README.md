@@ -89,7 +89,7 @@ So that I can hire a space
 I'd like to be able to book a space for a day
 ```
 
-### User Story Seven :construction:
+### User Story Seven :white_check_mark:
 ```
 As a user
 So that I can manage my spaces
@@ -98,4 +98,14 @@ I'd like to be able to confirm or deny a booking request
 
 ## User View
 
-[Once the project is nearer to completion, this section will contain screenshots of the website from the user's perspective :panda_face: ]
+### Home Screen
+Which lets the user either create an account or navigate to the log in page
+
+![A screenshot of the PandaBnb Homescreen](./assets/img/homescreen.png)
+
+### All Spaces
+Which shows all of the spaces listed on PandaBnB with the ability to filter results based off avaliability. Users have the ability to click on a space to be redirected to a new page which gives more information and allows the user to select a date to book.
+Users can also use the menu to navigate to view their spaces which they've previously listed.
+
+![A screenshot showing the all spaces page](./assets/img/view_spaces.png)
+
