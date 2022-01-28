@@ -1,5 +1,5 @@
 * {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Arial', Helvetica, sans-serif;
 }
 
 body {
@@ -9,8 +9,18 @@ body {
 
 /* headings */
 h1,
-h2 {
+h2,
+h3 {
   font-family: 'Lobster', cursive;
+}
+
+.space-list-item .mini-container h3 {
+  margin: 0 auto 5px;
+}
+
+.container a {
+  text-decoration: none;
+  color: #000;
 }
 
 /* menu */
@@ -20,15 +30,28 @@ h2 {
 }
 
 .menu li {
-  position: absolute;
-  right: 10%;
+  display: inline-block;
+  margin: 0 10px;
 }
 
-.menu a {
+.menu input[type="submit"] {
+  background-color: transparent;
+  border: 2px solid transparent;
+}
+
+.menu a,
+.menu input[type="submit"] {
   text-decoration: none;
-  color: inherit;
+  color: #888;
+  font-weight: bolder;
 }
 
+.menu a:hover,
+.menu input[type="submit"]:hover {
+  color: #000;
+  border-bottom: 2px solid #000;
+  cursor: pointer;
+}
 
 /* container */
 .container {
@@ -36,13 +59,25 @@ h2 {
   margin: 30px auto 0;
   border: 2px solid #000;
   border-radius: 10px;
-  box-shadow: 10px 9px #888;
+  box-shadow: 10px 9px #000;
   padding-bottom: 15px;
+}
+
+.mini-container {
+  width: 60%;
+  padding: 10px;
+  margin: 20px auto;
+  border: 1.5px solid rgb(206, 206, 206);
+  border-radius: 7px;
+}
+
+.space-list-item .mini-container:hover {
+  border: 1.5px solid #000;
 }
 
 /* form */
 .input-box,
-form input {
+.container form input {
   padding: 5px;
   border: 2px solid #000;
   border-radius: 5px;
@@ -62,9 +97,17 @@ form input {
   margin-bottom: 0;
 }
 
+#logged-in form {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+input[type="date"] {
+  cursor: text;
+}
+
 /* buttons */
-input[type="submit"],
-.menu a {
+.container input[type="submit"] {
   width: inherit;
   font-size: 15px;
   font-weight: bolder;
@@ -76,16 +119,8 @@ input[type="submit"],
   transition: all 0.4s ease-out;
 }
 
-/* buttons for logged in view */
-#logged-in form {
-  display: inline-block;
-  margin: 0 30px;
-}
-
-
 /* button hover*/
-input[type="submit"]:hover,
-.menu a:hover {
+.container input[type="submit"]:hover {
   color: #fff;
   background-color: #000;
   border-color: darkgray;

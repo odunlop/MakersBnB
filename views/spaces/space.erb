@@ -1,8 +1,3 @@
-
-<form action="/spaces">
-<input type="submit" value="Back to all spaces" />
-</form>
-
 <div class="container">
     <h1><%= @space.name %></h1>
     <p><%= @space.description %></p>
@@ -18,7 +13,7 @@
       <% @calendar.each do |date| %>
         <% if Bookings.get_availability(space_id: @space.id, date: date) %>
               <div class="container">
-              <p><form action="/bookings/new" method="post">
+              <form action="/bookings/new" method="post">
               <%= date %> 
                   <input type="hidden" name="date" value= <%= date %> >
                   <input type="hidden" name="space_id" value=<%= @space.id %>>
