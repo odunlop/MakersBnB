@@ -3,7 +3,7 @@ require 'Date'
 
 class Bookings
 
-  attr_reader :id, :space_id
+  attr_reader :id, :space_id, :user_id, :confirmed
 
   def initialize(id, space_id, date, confirmed, user_id)
     @id = id
