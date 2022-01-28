@@ -3,7 +3,7 @@
   <h2>Spaces</h2>
   <form action="/spaces/filter" method="post">
   Available on:
-  <input type="date" name="filter_date" value="<%= @filter_date %>">&nbsp;<input type="submit" value="Get Availability">
+  <input type="date" name="filter_date" value="<%= @filter_date %>" required />&nbsp;<input type="submit" value="Get Availability" />
   <% if @filter_date != nil %><a href="/spaces">Clear Filter</a><% end %>
   </form>
       <% @spaces.each do |space| %>
