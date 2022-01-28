@@ -52,4 +52,5 @@ class Space
       price: space[0]['price'],
       creator: space[0]['creator'])
   end
+  
 end 

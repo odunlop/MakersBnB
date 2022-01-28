@@ -61,6 +61,21 @@ class MakersBnB < Sinatra::Base
     erb(:logged_in)
   end
 
+  get '/spaces/requests' do
+    @requests = Bookings.get_bookings(user_id: session[:user_id])
+    erb :'spaces/requests'
+  end
+
+  post '/spaces/requests' do
+    redirect '/spaces/requests'
+  end
+
+  post '/spaces/requests/accept' do
+    p params[:space_id]
+    Bookings.accept(params[:space_id])
+    redirect '/sessions'
+  end
+
   post '/bookings/new' do 
     Bookings.create(space_id: params['space_id'], date: params['date'], confirmed: 'FALSE', user_id: session[:user_id])
     session[:date] = params['date']
