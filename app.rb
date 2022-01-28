@@ -109,5 +109,19 @@ class MakersBnB < Sinatra::Base
     erb :'spaces/space'
   end
 
+  get '/spaces/requests' do
+    @requests = Bookings.get_bookings(user_id: session[:user_id])
+    erb :'spaces/requests'
+  end
+
+  post '/spaces/requests' do
+    redirect '/spaces/requests'
+  end
+
+  post '/spaces/requests/accept' do
+    Bookings.accept(params[:space_id])
+    redirect '/sessions'
+  end
+
   run! if app_file == $0
 end
