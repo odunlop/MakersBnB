@@ -34,6 +34,18 @@ class MakersBnB < Sinatra::Base
     redirect '/spaces'
   end
 
+  post '/spaces/filter' do
+    session[:filter_date] = params['filter_date']
+    redirect '/spaces/filter'
+  end
+
+  get '/spaces/filter' do
+    redirect '/spaces' if session[:filter_date] == ""
+    @filter_date = session[:filter_date]
+    @spaces = Bookings.get_spaces(date: @filter_date)
+    erb :'spaces/all_spaces'
+  end
+
   get '/spaces/mine' do 
     @spaces = Space.mine(session[:user_id])
     erb :'spaces/all_spaces'
