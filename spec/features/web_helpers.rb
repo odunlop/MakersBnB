@@ -5,7 +5,7 @@ def log_in
   User.create(email: 'example@test.com', password: 'password')
     
   visit '/'
-  find('#login').click
+  click_link('Login')
   fill_in :email, with: 'example@test.com'
   fill_in :password, with: 'password'
   click_button 'Login'
@@ -47,5 +47,5 @@ def view_cottage
   set_up_fake_bookings
   log_in
   click_button 'View Spaces'
-  click_link 'Little Cottage'
+  click_link 'Little cottage'
 end
